@@ -61,6 +61,12 @@ namespace Shopping.Controllers
 			}
 			return View(user);
 		}
+
+		public async Task<IActionResult> Logout (string returnUrl = "/")
+		{
+			await _signInManager.SignOutAsync();
+			return Redirect(returnUrl);
+		}
 	}
 
 }
